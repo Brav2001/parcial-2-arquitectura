@@ -1,0 +1,117 @@
+@import "main";
+
+.wrapper-menu {
+  width: 260px;
+  transition: all 0.3s ease;
+  height: 100vh;
+  background: theme-palette-color('color', 'terciary');
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+
+  .top-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    .top-menu-init {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      em {
+        font-size: 26px;
+        cursor: pointer;
+      }
+
+      img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .btn-navbar {
+        height: 100%;
+        background: transparent;
+        outline: none;
+        border: none;
+        width: 40px;
+        font-size: 24px;
+        cursor: pointer;
+      }
+    }
+
+    .list-menu {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      .item-menu {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        text-decoration: none;
+        padding: 10px 0 10px 14px;
+        border-radius: 8px;
+
+        em {
+          font-size: 18px;
+          color: theme-palette-color('font', 'title');
+        }
+
+        .item {
+          color: theme-palette-color('font', 'title');
+          font-size: 16px;
+          list-style: none;
+        }
+
+        &:hover {
+          background: theme-palette-color('color', 'hover');
+          padding-left: 6px;
+          border-left: 8px solid theme-palette-color('color', 'primary');
+          font-weight: 450;
+        }
+
+        //&:active {
+        //  color: theme-palette-color('font', 'title');
+        //}
+      }
+
+      .item-menu-active {
+        background: theme-palette-color('palete', 'rosa-pastel');
+        padding-left: 6px;
+        border-left: 8px solid theme-palette-color('color', 'primary');
+        font-weight: 450;
+      }
+    }
+  }
+}
+
+.wrapper-menu-close {
+  width: 80px;
+  transition: all 0.3s ease;
+
+  .top-menu {
+    .top-menu-init {
+      em {
+        display: none;
+      }
+    }
+
+    .list-menu {
+      .item-menu {
+        .item {
+          display: none;
+        }
+      }
+    }
+
+  }
+
+  .bottom-menu {
+    span {
+      display: none;
+    }
+  }
+}

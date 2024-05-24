@@ -1,0 +1,59 @@
+@use "sass:map";
+
+$theme-palette: (
+  material: (
+    50: #ddfbff,
+    100: #bbf6ff,
+    200: #9af2ff,
+    300: #78eeff,
+    400: #56e9ff,
+    500: #34e5ff,
+    600: #12e1ff,
+    700: #00d1f0,
+    800: #00b3ce,
+    900: #0096ac,
+    contrast: (
+      50: rgba(black, 0.87),
+      100: rgba(black, 0.87),
+      200: rgba(black, 0.87),
+      300: white,
+    ),
+  ),
+  palete: (
+    rosa: #87e9ff,
+    rosa-pastel: #8eb4ca,
+  ),
+  color: (
+    "primary": #34344e,
+    "secondary": #3a415a,
+    "terciary": #fff,
+    "hover": #89a7b1,
+  ),
+  background: (
+    "primary": #f4f5f7,
+    "secondary": #f0f1f2,
+  ),
+  grays: (
+    50: #f1f1f1,
+    100: #eaeaea,
+    200: #d5d5d5,
+    300: #c0c0c0,
+    400: #aaaaaa,
+    500: #959595,
+    600: #808080,
+    700: #666666,
+    800: #5c5c5c,
+  ),
+  font: (
+    "title": #384461,
+    "subtitle": #091e42,
+  ),
+);
+
+@function theme-palette-color($palette, $scale) {
+  @return map.get(get-palette($palette), $scale);
+}
+
+@function get-palette($palette) {
+  @return map.get($theme-palette, $palette);
+}

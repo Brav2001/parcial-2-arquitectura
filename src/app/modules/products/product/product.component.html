@@ -1,0 +1,16 @@
+<div class="wrapper-product">
+  <div class="header-product">
+    <h1 class="tile-main-module">Modulo productos</h1>
+    <app-lateral-menu />
+  </div>
+
+  <app-table
+    (add)="addProduct($event)"
+    (edit)="editProduct($event)"
+    (delete)="deleteProduct($event)"
+    [tableColumns]="columnsTable"
+    [tableData]="tableData"
+    [action]="tableActions"
+    [buttonActionName]="buttonActionName"
+  ></app-table>
+</div>

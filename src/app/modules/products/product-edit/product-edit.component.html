@@ -1,0 +1,122 @@
+<div class="wrapper-product-edit">
+  <span class="title-product"
+    >{{ this.data ? "¡Edita tu producto!" : "¡Registra tu producto!" }}
+  </span>
+  <form class="grid" autocomplete="off" [formGroup]="productForm">
+    @if (screen == 1) {
+    <div class="col-12">
+      <div class="form-container">
+        <div class="form-group">
+          <label class="form-label" for="name">Nombre del producto</label>
+          <input
+            id="name"
+            type="text"
+            appInputMask="alphaNumericAccents"
+            appTrim
+            appMessageErrors
+            formControlName="title"
+            placeholder="Digite el nombre del producto"
+            class="form-input"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-container">
+        <div class="form-group">
+          <label class="form-label" for="description"
+            >Descripción del producto</label
+          >
+          <input
+            id="description"
+            appInputMask="alphaNumericAccents"
+            type="text"
+            appTrim
+            appMessageErrors
+            formControlName="description"
+            placeholder="Digite la descripción del producto"
+            class="form-input"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-container">
+        <div class="form-group">
+          <label class="form-label" for="price">Precio del producto</label>
+          <input
+            id="price"
+            type="number"
+            appInputMask="float"
+            appTrim
+            appMessageErrors
+            formControlName="price"
+            placeholder="Digite el precio del producto"
+            class="form-input"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="form-container margin-b">
+        <div class="form-group">
+          <label class="form-label writing-color">Categoria del producto</label>
+          <ng-select
+            [items]="category"
+            [clearable]="false"
+            [searchable]="false"
+            bindLabel="name"
+            bindValue="id"
+            formControlName="categoryId"
+            appMessageErrors
+            placeholder="Seleccione una categoria"
+          >
+          </ng-select>
+        </div>
+      </div>
+    </div>
+    <div class="col-12">
+      <button class="btn" (click)="changeScreen(2)">Siguiente</button>
+    </div>
+    } @else if (screen === 2) {
+    <div class="col-8 group-input-btn">
+      <div class="form-container input">
+        <div class="form-group">
+          <label class="form-label" for="imageUrl">Url de la imagen</label>
+          <input
+            id="imageUrl"
+            type="text"
+            appTrim
+            appMessageErrors
+            formControlName="images"
+            placeholder="Ingrese la Url de la imagen"
+            class="form-input"
+          />
+        </div>
+      </div>
+      <button (click)="pushImage()" class="btn btn-submit">
+        <em class="icon-plus"></em>
+      </button>
+    </div>
+    <div class="images-upload">
+      @for (image of images; track $index) {
+      <div class="image-product">
+        <img src="{{ image }}" alt="image-{{ $index }}-product" />
+        <em
+          class="icon-trash absolute-trash"
+          (click)="deleteImage($index)"
+        ></em>
+      </div>
+      }
+    </div>
+    <div class="col-12 group-btn">
+      <button class="btn btn-return" (click)="screen = 1">
+        <em class="icon-arrow-left"> </em>
+      </button>
+      <button class="btn btn-g" (click)="sendDataRegisterProduct()">
+        {{ this.data ? "Editar producto" : "Registrar producto" }}
+      </button>
+    </div>
+    }
+  </form>
+</div>

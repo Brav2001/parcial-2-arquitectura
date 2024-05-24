@@ -1,0 +1,42 @@
+.card-wrapper {
+  border-radius: 12px;
+  background: rgba(236, 149, 200, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  height: 290px;
+  width: 300px;
+  padding: 12px;
+
+  .image-card {
+    width: 276px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+
+  .description-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .info-product {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      .name-product {
+        color: white;
+        font-weight: 500;
+      }
+
+      .price-product{
+        color: white;
+
+        opacity: 0.6;
+      }
+    }
+
+    em{
+      font-size: 24px;
+      color: white;
+    }
+  }
+}
